@@ -6,6 +6,16 @@ const tituloInput = document.querySelector("#titulo");
 const textoInput = document.querySelector("#texto");
 const divNotas = document.querySelector(".div-notas");
 
+
+
+
+const objNota = {
+  fecha: "",
+  titulo: "",
+  texto: "",
+};
+
+
 formBuscar.addEventListener("submit", (event) => {
   event.preventDefault();
   divBuscar.innerHTML = "<p>" + tituloBuscar.value + "</p>";
