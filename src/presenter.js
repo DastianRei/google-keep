@@ -51,6 +51,12 @@ function mostrarNotas() {
     parrafo.textContent = `${fecha} - ${titulo} - ${texto} - `;
     parrafo.dataset.id = fecha;
 
+    const editarBoton = document.createElement("button");
+    editarBoton.onclick = () => cargarNota(nota);
+    editarBoton.textContent = "Editar";
+    editarBoton.classList.add("btn", "btn-editar");
+    parrafo.append(editarBoton);
+
     const eliminarBoton = document.createElement("button");
     eliminarBoton.onclick = () => eliminarNota(fecha);
     eliminarBoton.textContent = "Eliminar";
@@ -81,6 +87,20 @@ function refrescarHTML() {
     divNotas.removeChild(divNotas.firstChild);
   }
 }
+
+function cargarNota(nota) {
+  const { fecha, titulo, texto } = nota;
+
+  tituloInput.value = titulo;
+  textoInput.value = texto;
+
+  objNota.fecha = fecha;
+
+  formulario.querySelector('button[type="submit"]').textContent = "Actualizar";
+
+  editando = true;
+}
+
 
 function editarNota() {
   objNota.titulo = tituloInput.value;
