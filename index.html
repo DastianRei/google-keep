@@ -4,33 +4,48 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/bootstrap.css">
+    <link rel="stylesheet" href="src/bootstrap.css" />
     <title>Google Keep</title>
   </head>
   <body>
-    <div>
-      <h2>Formulario Buscar</h2>
-      <form id="form-buscar">
-        <input type="text" id="titulo-buscar" placeholder="Ingresa un titulo" />
-        <button type="submit" id="btn-buscar">Buscar</button>
-      </form>
-      <div id="div-buscado"></div>
-    </div>
-
-    <div class="contenedor">
-      <div class="div-formulario">
-        <h2>Formulario Crear</h2>
-        <form action="#" id="formulario">
-          <input type="text" id="titulo" placeholder="Ingresa un titulo" />
-          <input type="text" id="texto" placeholder="Ingresa el texto" />
-          <button type="submit" id="btn-crear">Crear</button>
+    <div class="container" style="display: flex; height: 100vw; width: 100vh">
+      <div style="width: 50%; height: 100%">
+        <h2>Buscar</h2>
+        <form id="form-buscar">
+          <input
+            type="text"
+            id="titulo-buscar"
+            placeholder="Ingresa un titulo"
+          />
+          <button type="submit" id="btn-buscar" class="btn btn-primary">Buscar</button>
         </form>
-      </div>
-      <div class="div-listado">
-        <h2>Notas</h2>
-        <div class="div-notas">
-
+        <br>
+        <div class="div-formulario">
+          <h2>Crear</h2>
+          <form action="#" id="formulario">
+            <input
+              type="text"
+              class="col-form-label col-form-label-lg mt-4"
+              id="titulo"
+              placeholder="Ingresa un titulo"
+            />
+            <br /><br />
+            <textarea
+              type="text"
+              id="texto"
+              placeholder="Ingresa el texto"
+              rows="5"
+              class="form-control"
+              style="width: 50%"
+            ></textarea>
+            <br>
+            <button type="submit" id="btn-crear" class="btn btn-info">Agregar</button>
+          </form>
         </div>
+      </div>
+      <div class="div-listado" style="width: 50vh; height: 100vh">
+        <h2>Notas</h2>
+        <div class="div-notas"></div>
       </div>
     </div>
   </body>

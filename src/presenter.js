@@ -17,7 +17,7 @@ let editando = true;
 
 formBuscar.addEventListener("submit", (event) => {
   event.preventDefault();
-  divBuscar.innerHTML = "<p>" + tituloBuscar.value + "</p>";
+  buscarNota(tituloBuscar.value)
 });
 
 formulario.addEventListener("submit", validarFormulario);
@@ -55,13 +55,13 @@ function mostrarNotas() {
   listaNotas.forEach((nota) => {
     const { fecha, titulo, texto } = nota;
     const parrafo = document.createElement("p");
-    parrafo.textContent = `${fecha} - ${titulo} - ${texto} - `;
+    parrafo.textContent = `${titulo} - ${texto} `;
     parrafo.dataset.id = fecha;
 
     const editarBoton = document.createElement("button");
     editarBoton.onclick = () => cargarNota(nota);
     editarBoton.textContent = "Editar";
-    editarBoton.classList.add("btn", "btn-editar");
+    editarBoton.classList.add("btn", "btn-success");
     parrafo.append(editarBoton);
 
     const eliminarBoton = document.createElement("button");
@@ -82,6 +82,11 @@ function limpiarObjeto() {
   objNota.texto = "";
 }
 
+function buscarNota(titulo) {
+  listaNotas = listaNotas.filter((nota) => nota.titulo === titulo);
+  //refrescarHTML();
+  mostrarNotas();
+}
 function eliminarNota(fecha) {
   listaNotas = listaNotas.filter((nota) => nota.fecha !== fecha);
   refrescarHTML();
