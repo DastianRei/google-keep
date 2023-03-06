@@ -20,10 +20,7 @@ formBuscar.addEventListener("submit", (event) => {
   divBuscar.innerHTML = "<p>" + tituloBuscar.value + "</p>";
 });
 
-formulario.addEventListener("submit", (event) => {
-  event.preventDefault();
-  divNotas.innerHTML = "<p>" + tituloInput.value + textoInput.value + "</p>";
-});
+formulario.addEventListener("submit", validarFormulario);
 
 function validarFormulario(e) {
   e.preventDefault();
@@ -34,10 +31,12 @@ function validarFormulario(e) {
   objNota.fecha = Date.now();
   objNota.titulo = tituloInput.value;
   objNota.texto = textoInput.value;
+  crearNota();
 }
 
 function crearNota() {
   listaNotas.push({ ...objNota });
+  console.log(listaNotas);
   formulario.reset();
   limpiarObjeto();
 }
