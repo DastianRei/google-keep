@@ -62,6 +62,12 @@ function limpiarObjeto() {
   objNota.texto = "";
 }
 
+function eliminarNota(titulo) {
+  listaNotas = listaNotas.filter((nota) => nota.titulo !== titulo);
+  refrescarHTML();
+  mostrarNotas();
+}
+
 function refrescarHTML() {
   const divNotas = document.querySelector(".div-notas");
   while (divNotas.firstChild) {
