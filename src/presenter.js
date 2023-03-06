@@ -50,6 +50,13 @@ function mostrarNotas() {
     const parrafo = document.createElement("p");
     parrafo.textContent = `${fecha} - ${titulo} - ${texto} - `;
     parrafo.dataset.id = fecha;
+
+    const eliminarBoton = document.createElement("button");
+    eliminarBoton.onclick = () => eliminarNota(fecha);
+    eliminarBoton.textContent = "Eliminar";
+    eliminarBoton.classList.add("btn", "btn-eliminar");
+    parrafo.append(eliminarBoton);
+
     const hr = document.createElement("hr");
     divNotas.appendChild(parrafo);
     divNotas.appendChild(hr);
@@ -62,8 +69,8 @@ function limpiarObjeto() {
   objNota.texto = "";
 }
 
-function eliminarNota(titulo) {
-  listaNotas = listaNotas.filter((nota) => nota.titulo !== titulo);
+function eliminarNota(fecha) {
+  listaNotas = listaNotas.filter((nota) => nota.fecha !== fecha);
   refrescarHTML();
   mostrarNotas();
 }
