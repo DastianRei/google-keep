@@ -36,13 +36,35 @@ function validarFormulario(e) {
 
 function crearNota() {
   listaNotas.push({ ...objNota });
-  console.log(listaNotas);
+  mostrarNotas();
   formulario.reset();
   limpiarObjeto();
+}
+
+function mostrarNotas() {
+  refrescarHTML();
+  const divNotas = document.querySelector(".div-notas");
+
+  listaNotas.forEach((nota) => {
+    const { fecha, titulo, texto } = nota;
+    const parrafo = document.createElement("p");
+    parrafo.textContent = `${fecha} - ${titulo} - ${texto} - `;
+    parrafo.dataset.id = fecha;
+    const hr = document.createElement("hr");
+    divNotas.appendChild(parrafo);
+    divNotas.appendChild(hr);
+  });
 }
 
 function limpiarObjeto() {
   objNota.fecha = "";
   objNota.titulo = "";
   objNota.texto = "";
+}
+
+function refrescarHTML() {
+  const divNotas = document.querySelector(".div-notas");
+  while (divNotas.firstChild) {
+    divNotas.removeChild(divNotas.firstChild);
+  }
 }
