@@ -67,7 +67,7 @@ function mostrarNotas() {
     const eliminarBoton = document.createElement("button");
     eliminarBoton.onclick = () => eliminarNota(fecha);
     eliminarBoton.textContent = "Eliminar";
-    eliminarBoton.classList.add("btn", "btn-eliminar");
+    eliminarBoton.classList.add("btn", "btn-danger");
     parrafo.append(eliminarBoton);
 
     const hr = document.createElement("hr");
