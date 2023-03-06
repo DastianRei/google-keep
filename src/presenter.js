@@ -10,3 +10,7 @@ formBuscar.addEventListener("submit", (event) => {
   event.preventDefault();
   divBuscar.innerHTML = "<p>" + tituloBuscar.value + "</p>";
 });
+formulario.addEventListener("submit", (event) => {
+  event.preventDefault();
+  divNotas.innerHTML = "<p>" + tituloInput.value + textoInput.value + "</p>";
+});
