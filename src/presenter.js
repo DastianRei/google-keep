@@ -19,7 +19,19 @@ formBuscar.addEventListener("submit", (event) => {
   event.preventDefault();
   divBuscar.innerHTML = "<p>" + tituloBuscar.value + "</p>";
 });
+
 formulario.addEventListener("submit", (event) => {
   event.preventDefault();
   divNotas.innerHTML = "<p>" + tituloInput.value + textoInput.value + "</p>";
 });
+
+function validarFormulario(e) {
+  e.preventDefault();
+  if (tituloInput.value === "" || textoInput.value === "") {
+    alert("Todos los campos se deben llenar");
+    return;
+  }
+  objNota.fecha = Date.now();
+  objNota.titulo = tituloInput.value;
+  objNota.texto = textoInput.value;
+}
