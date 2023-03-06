@@ -6,15 +6,14 @@ const tituloInput = document.querySelector("#titulo");
 const textoInput = document.querySelector("#texto");
 const divNotas = document.querySelector(".div-notas");
 
-
-
-
 const objNota = {
   fecha: "",
   titulo: "",
   texto: "",
 };
 
+let listaNotas = [];
+let editando = true;
 
 formBuscar.addEventListener("submit", (event) => {
   event.preventDefault();
