@@ -81,3 +81,24 @@ function refrescarHTML() {
     divNotas.removeChild(divNotas.firstChild);
   }
 }
+
+function editarNota() {
+  objNota.titulo = tituloInput.value;
+  objNota.texto = textoInput.value;
+
+  listaNotas.map((nota) => {
+    if (nota.fecha === objNota.fecha) {
+      nota.fecha = objNota.fecha;
+      nota.texto = objNota.texto;
+      nota.titulo = objNota.titulo;
+    }
+  });
+
+  refrescarHTML();
+  mostrarNotas();
+  formulario.reset();
+
+  formulario.querySelector('button[type="submit"]').textContent = "Agregar";
+
+  editando = false;
+}
