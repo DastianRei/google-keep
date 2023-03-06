@@ -35,3 +35,15 @@ function validarFormulario(e) {
   objNota.titulo = tituloInput.value;
   objNota.texto = textoInput.value;
 }
+
+function crearNota() {
+  listaNotas.push({ ...objNota });
+  formulario.reset();
+  limpiarObjeto();
+}
+
+function limpiarObjeto() {
+  objNota.fecha = "";
+  objNota.titulo = "";
+  objNota.texto = "";
+}
